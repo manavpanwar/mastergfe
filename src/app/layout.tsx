@@ -60,15 +60,23 @@ function Header() {
   return (
     <header className="site-header">
       <div className="header-container">
-        <Link href="/" className="logo">MASTER G</Link>
+        <div className="header-logo-area">
+          <Link href="/" className="logo">
+            <div className="logo-crop">
+              <img src="/images/logo.png" alt="Master G Logo" className="logo-img" />
+            </div>
+          </Link>
+        </div>
         <nav className="main-nav">
           <ul>
             <li><Link href="/#services">Services</Link></li>
             <li><Link href="/#about">About</Link></li>
           </ul>
         </nav>
-        <a href="https://wa.me/919999999999" className="btn btn-primary cta-btn">Consult Now</a>
-        <MobileToggle />
+        <div className="header-cta">
+          <a href="https://wa.me/919999999999" className="btn btn-primary cta-btn">Consult Now</a>
+          <MobileToggle />
+        </div>
       </div>
     </header>
   );
