@@ -1,6 +1,6 @@
-import { SERVICES } from "@/data/services";
-import ServiceTemplate from "@/components/ServiceTemplate";
+import AdvertisingAgencyPage from "@/components/AdvertisingAgencyPage";
 import { Metadata } from "next";
+import { SERVICES } from "@/data/services";
 
 export const metadata: Metadata = {
   title: SERVICES.advertising.seoTitle,
@@ -9,6 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function AdvertisingPage() {
-  const service = SERVICES.advertising;
-  return <ServiceTemplate service={service} />;
+  return <AdvertisingAgencyPage />;
 }

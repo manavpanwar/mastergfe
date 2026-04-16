@@ -1,5 +1,5 @@
 import { SERVICES } from "@/data/services";
-import ServiceTemplate from "@/components/ServiceTemplate";
+import ScrapManagementPage from "@/components/ScrapManagementPage";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,6 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function ScrapPage() {
-  const service = SERVICES.scrap;
-  return <ServiceTemplate service={service} />;
+  return <ScrapManagementPage />;
 }

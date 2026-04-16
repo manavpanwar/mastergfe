@@ -169,29 +169,67 @@ export const SERVICES: Record<string, Service> = {
   },
   scrap: {
     slug: "scrap",
-    title: "Scrap & Metal Services",
+    title: "Eco-Friendly Scrap management",
     icon: "♻️",
-    tagline: "Sustainable waste management and precision engineering for industrial growth.",
+    tagline: "Professional Doorstep Scrap Collection & Industrial Waste Management.",
+    heroImage: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop",
     highlights: [
-      { icon: "🏭", title: "Industrial Scrap", desc: "Bulk collection of factory waste, heavy machinery, and metal surplus with prompt payments." },
-      { icon: "💻", title: "Digital E-Waste", desc: "Responsible disposal and data destruction for IT equipment, servers, and mobile devices." },
-      { icon: "🚗", title: "Vehicle Dismantling", desc: "Certified car and bike scrapping with legal RTO documentation and best scrap value." },
-      { icon: "❄️", title: "Domestic Appliances", desc: "Hassle-free pickup for old ACs, Fridges, Washing Machines, and other electronics." },
-      { icon: "🏗️", title: "Metal Fabrication", desc: "High-end SS, MS, Aluminium, and Brass works for construction and industrial parts." },
-      { icon: "💥", title: "Laser Cutting & Bending", desc: "State-of-the-art CNC laser cutting and bending for precision metal components." }
+      { 
+        title: "Paper & Cardboard", 
+        icon: "📰", 
+        desc: "Newspapers, Office A3/A4 documents, Books, and Cardboard boxes." 
+      },
+      { 
+        title: "Metals & Alloys", 
+        icon: "🏗️", 
+        desc: "Iron, Copper, Aluminum, Brass, Steel, and Heavy industrial scrap." 
+      },
+      { 
+        title: "Home Appliances", 
+        icon: "🧺", 
+        desc: "Washing Machines (Auto/Semi), Fridges, ACs, Geysers, and Gym equipment." 
+      },
+      { 
+        title: "IT & E-Waste", 
+        icon: "💻", 
+        desc: "Laptops, CPUs, Printers, Monitors, LCD/LED TVs, and used Batteries." 
+      },
+      { 
+        title: "Small Appliances", 
+        icon: "🔌", 
+        desc: "Microwaves, Fans, Grinders, Vacuum cleaners, and Routers/Modems." 
+      },
+      { 
+        title: "Vehicle Scrap", 
+        icon: "🚗", 
+        desc: "Official handling and best scrap value for Bikes, Scooters, and Cars." 
+      }
     ],
-    specialFeature: "🚚 Seamless Doorstep Pickup: We weigh, we pay, and we pickup instantly!",
+    benefits: [
+      "Accurate Digital Weighing (Digital Scale)",
+      "Trained & Verified Pick-up Crew (Verified Staff)",
+      "Instant Payment via UPI or Cash",
+      "Formal Documentation for Businesses",
+      "Competitive Market Prices",
+      "Eco-Friendly Sustainable Recycling"
+    ],
+    steps: [
+      { title: "Schedule Pickup", desc: "Select a convenient date and time via phone or WhatsApp." },
+      { title: "Doorstep Collection", desc: "Our trained professional crew arrives with digital weighing scales." },
+      { title: "Instant Payment", desc: "Get paid instantly via UPI or Cash before our vehicle leaves." }
+    ],
     stats: [
-      { label: "Waste Recycled", value: "10K Tons" },
-      { label: "Metals Processed", value: "5K Tons" },
-      { label: "E-waste Saved", value: "2K Units" }
+      { label: "Scrap Processed", value: "250+ Tons" },
+      { label: "Happy Households", value: "10K+" },
+      { label: "Industrial Clients", value: "500+" },
+      { label: "Environment Saved", value: "Verified" }
     ],
-    ctaTitle: "Recycle & Earn",
-    ctaText: "Turn your waste into wealth while contributing to a greener planet. Schedule a pickup now.",
-    ctaButtonText: "Schedule Pickup",
-    seoTitle: "Industrial Scrap & E-waste Recycling India | Metal Fabrication Master G",
-    seoDescription: "Professional scrap management services. We specialize in industrial scrap collection, certified e-waste recycling, vehicle scrapping, and precision metal fabrication works.",
-    keywords: ["industrial scrap buyers", "e-waste recycling India", "vehicle scrap policy certificate", "bulk metal collection", "SS MS fabrication works", "CNC laser cutting services"]
+    ctaTitle: "Best Value for your Scrap",
+    ctaText: "Join thousands of green heroes making a difference. Schedule your first pickup today.",
+    ctaButtonText: "Schedule My Pickup",
+    seoTitle: "Best Scrap Dealer in Delhi NCR | Doorstep Pickup - Master G",
+    seoDescription: "Sell your household and industrial scrap online with Master G. We offer the best rates for Paper, Metal, E-Waste, and Appliances with instant payment and digital weighing.",
+    keywords: ["scrap dealer delhi", "sell scrap online", "e-waste recycling", "metal scrap rates", "doorstep scrap pickup", "industrial waste management", "ScrapUncle alternative"]
   },
   "business-legal": {
     slug: "business-legal",
@@ -242,9 +280,9 @@ export const SERVICES: Record<string, Service> = {
     ctaTitle: "Dominate Your Market",
     ctaText: "Let's create a campaign that doesn't just look good, but delivers real business growth.",
     ctaButtonText: "Grow Your Business",
-    seoTitle: "Best Advertising Agency India | Hoarding & Digital Marketing Master G",
-    seoDescription: "Boost your brand with the best advertising and marketing services in India. We offer hoarding ads, transit media, result-driven SEO/SMO, and strategic digital campaigns.",
-    keywords: ["advertising agency India", "hoarding ads company", "transit media advertising", "best SEO SMO services", "social media handling", "brand promotion India"]
+    seoTitle: "Advertising & Digital Marketing Services | Premium Ad Agency India",
+    seoDescription: "Unlock exponential growth with Master G Consultancy's full-service advertising agency. From Transit Media and Outdoor Ads to high-impact Digital Marketing and BTL promotions.",
+    keywords: ["advertising agency Delhi NCR", "transit media advertising", "outdoor media India", "digital marketing services", "BTL promotions", "printing services", "brand strategy", "lead generation India"]
   },
   property: {
     slug: "property",
