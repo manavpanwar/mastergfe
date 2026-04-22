@@ -32,22 +32,25 @@ export default function Home() {
       {/* ══ HERO ══════════════════════════════════ */}
       <section className="hero">
         <div className="hero-content">
-          <MotionWrapper direction="down">
+          <MotionWrapper direction="down" delay={0.1}>
+            <div className="hero-logo-container">
+              <img src="/images/whitelogo.png" alt="Master G Logo" className="hero-logo" />
+            </div>
             <span className="hero-eyebrow">⚡ The Gold Standard of Consulting</span>
           </MotionWrapper>
 
-          <MotionWrapper delay={0.15}>
+          <MotionWrapper delay={0.3}>
             <h1>Solutions That <span className="accent-text">Elevate</span><br />Your World</h1>
           </MotionWrapper>
 
-          <MotionWrapper delay={0.3}>
+          <MotionWrapper delay={0.4}>
             <p className="hero-desc">
               Expert professional consulting across 8 industries — from education to real estate.
               Precision, trust, and excellence in every engagement.
             </p>
           </MotionWrapper>
 
-          <MotionWrapper delay={0.45} className="cta-group">
+          <MotionWrapper delay={0.5} className="cta-group">
             <Link href="#services" className="btn btn-primary">Explore Services</Link>
             <a href="https://wa.me/919999999999" className="btn btn-outline">Free Consultation</a>
           </MotionWrapper>

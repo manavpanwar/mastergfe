@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import MobileToggle from "@/components/MobileToggle";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import PrismaticBurst from "@/components/PrismaticBurst";
 
 export const metadata: Metadata = {
   title: {
@@ -11,8 +12,8 @@ export const metadata: Metadata = {
   },
   description: "Master G Consultancy provides expert solutions in Education, Solar Energy, Travel, Home Renovation, Scrap Management, Business Legal, Advertising, and Property investment.",
   keywords: [
-    "Consultancy India", "Multi-service business", "Education Guide", "Solar ROI India", 
-    "North India Tourism", "Home Renovation Contractors", "E-waste Recycling", 
+    "Consultancy India", "Multi-service business", "Education Guide", "Solar ROI India",
+    "North India Tourism", "Home Renovation Contractors", "E-waste Recycling",
     "Company Registration Experts", "Brand Advertising agency", "Prime Real Estate India"
   ],
   authors: [{ name: "Master G Team" }],
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/images/masterglogo.png",
+  },
 };
 
 export default function RootLayout({
@@ -45,8 +49,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body>
-        <div className="bg-glow bg-glow-1"></div>
-        <div className="bg-glow bg-glow-2"></div>
+        <PrismaticBurst 
+          intensity={2.0}
+          speed={0.4}
+          colors={['#101010', '#F59E0B', '#FF7A00']}
+          animationType="rotate3d"
+          mixBlendMode="normal"
+        />
         <Header />
         {children}
         <Footer />
@@ -63,7 +72,7 @@ function Header() {
         <div className="header-logo-area">
           <Link href="/" className="logo">
             <div className="logo-crop">
-              <img src="/images/logo.png" alt="Master G Logo" className="logo-img" />
+              <img src="/images/whitesq.png" alt="Master G Logo" className="logo-img" />
             </div>
           </Link>
         </div>
