@@ -118,12 +118,12 @@ export const SERVICES: Record<string, Service> = {
     icon: "✈️",
     tagline: "Discover the unseen landscapes and cultural heritage with curated travel experiences.",
     highlights: [
-      { icon: "🚐", title: "Luxury Transport Booking", desc: "Wide range of AC Buses, Taxis, and Luxury Travellers for group family trips and corporate tours." },
-      { icon: "🏔️", title: "Himalayan Expeditions", desc: "Exclusive packages for Himachal Pradesh, Uttarakhand, Kashmir, and the rugged terrains of Ladakh." },
-      { icon: "🕌", title: "North India Heritage", desc: "Cultural tours covering the Golden Triangle, Rajasthan's forts, and the spiritual ghats of Varanasi." },
-      { icon: "🗺️", title: "Customized Itineraries", desc: "Tailor-made solo, family, or honeymoon trips designed around your preferences and budget." },
-      { icon: "🏨", title: "Hotel & Resort Stays", desc: "Handpicked boutique hotels and luxury resorts at the most competitive rates." },
-      { icon: "🧗", title: "Adventure & Trekking", desc: "Guided treks, camping expeditions, and river rafting packages in the heart of the mountains." }
+      { icon: "🚐", title: "Bus / Taxi / Traveller Booking", desc: "Wide range of AC Buses, Taxis, and Luxury Travellers for group family trips and corporate tours." },
+      { icon: "🇮🇳", title: "All India Tour Packages", desc: "Curated experiences across the diverse landscapes of India, from coastal retreats to cultural hubs." },
+      { icon: "🏛️", title: "North Indian Tour Packages", desc: "Explore the heritage and scenic beauty of North India with our expert-guided itineraries." },
+      { icon: "🙏", title: "Tirath Dham / 4 Dham", desc: "Spiritual journeys to the sacred 4 Dhams and various religious sites across India with full logistical support." },
+      { icon: "🏔️", title: "Himachal & Uttarakhand", desc: "Breathtaking mountain escapes, hill station tours, and adventure packages in the heart of the Himalayas." },
+      { icon: "❄️", title: "J&K and Ladakh", desc: "Exclusive tours to the paradise of Kashmir and the rugged, majestic terrains of Leh and Ladakh." }
     ],
     benefits: [
       "Verified local guides with deep regional knowledge",
@@ -237,12 +237,11 @@ export const SERVICES: Record<string, Service> = {
     icon: "⚖️",
     tagline: "Simplify your business journey with expert legal and registration consultancy.",
     highlights: [
-      { icon: "📋", title: "Company Registration", desc: "Fast-track incorporation of Private Ltd, LLP, One Person Company (OPC), and Section 8 firms." },
-      { icon: "🏛️", title: "MSME & Firm Reg", desc: "UDYAM registration, partnership deeds, and GST registration for small and medium businesses." },
-      { icon: "🚀", title: "Startup India & FSSAI", desc: "DPIIT recognition, FSSAI (Food Safety) licenses, and Import-Export Code (IEC) registration." },
-      { icon: "📑", title: "Taxation & Compliance", desc: "GST filing, Income Tax planning, and annual ROC compliances for businesses of all sizes." },
-      { icon: "⚖️", title: "Legal Consultancy", desc: "Contract drafting, trademark registration, and civil/corporate legal advice from senior consultants." },
-      { icon: "🛡️", title: "Intellectual Property", desc: "Protect your brand with Trademark, Copyright, and Patent filing services." }
+      { icon: "📑", title: "Taxation & Registration", desc: "Expert guidance for GST, Income Tax registration, and comprehensive taxation planning." },
+      { icon: "🏢", title: "Company Registration", desc: "Hassle-free incorporation for Private Ltd, Public Ltd, and One Person Company (OPC) structures." },
+      { icon: "📝", title: "Firm / MSME / LLP", desc: "Official registration for partnership firms, MSME (UDYAM), and Limited Liability Partnerships." },
+      { icon: "🚀", title: "Startup India / FSSAI", desc: "Specialized licensing for startups (DPIIT recognition) and FSSAI food safety certifications." },
+      { icon: "⚖️", title: "Investment & Legal", desc: "Senior legal consultancy for business investments, contract drafting, and corporate compliance." }
     ],
     steps: [
       { title: "Consultation", desc: "Initial discussion to understand your business structure and requirements." },
@@ -296,22 +295,6 @@ export const SERVICES: Record<string, Service> = {
       { icon: "🛏️", title: "Dedicated PG/Rooms", desc: "Quality Room rentals and PG collaborations for students and working professionals (Girls/Boys)." },
       { icon: "📐", title: "Property Valuation", desc: "Professional market analysis and valuation reports for informed investment decisions." },
       { icon: "📜", title: "Legal Verification", desc: "Title deeds check, RERA compliance, and secondary market due diligence services." }
-    ],
-    listings: [
-      { 
-        title: "Modern 3BHK Luxury Flat", 
-        type: "Residential / Sale", 
-        price: "₹1.4 Cr", 
-        location: "Premium City Center",
-        image: "/images/prop_flat.png"
-      },
-      { 
-        title: "Prime Corner Retail Shop", 
-        type: "Commercial / Rent", 
-        price: "₹55,000/mo", 
-        location: "Business Hub Plaza",
-        image: "/images/prop_shop.png"
-      }
     ],
     ctaTitle: "Find Your Perfect Space",
     ctaText: "Browse our handpicked listings or list your property with us to reach serious buyers today.",

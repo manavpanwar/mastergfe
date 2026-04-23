@@ -4,6 +4,8 @@ import Link from "next/link";
 import MobileToggle from "@/components/MobileToggle";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import PrismaticBurst from "@/components/PrismaticBurst";
+import { StoreProvider } from "@/components/StoreProvider";
+import UserMenu from "@/components/UserMenu";
 
 export const metadata: Metadata = {
   title: {
@@ -50,16 +52,18 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body>
         <PrismaticBurst 
-          intensity={2.0}
-          speed={0.4}
-          colors={['#101010', '#F59E0B', '#FF7A00']}
-          animationType="rotate3d"
+          intensity={0.8}
+          speed={0.2}
+          colors={['#0A0A0A', '#F59E0B', '#141414']}
+          animationType="rotate"
           mixBlendMode="normal"
         />
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppFloat />
+        <StoreProvider>
+          <Header />
+          {children}
+          <Footer />
+          <WhatsAppFloat />
+        </StoreProvider>
       </body>
     </html>
   );
@@ -80,6 +84,7 @@ function Header() {
           <ul>
             <li><Link href="/#services">Services</Link></li>
             <li><Link href="/#about">About</Link></li>
+            <UserMenu />
           </ul>
         </nav>
         <div className="header-cta">

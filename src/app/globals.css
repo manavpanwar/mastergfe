@@ -36,12 +36,66 @@
   --radius-xl: 36px;
   --radius-full: 9999px;
 
-  --blur: 24px;
+  --blur: 12px;
 
   --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #FF7A00 100%);
   --gradient-gold-text: linear-gradient(90deg, #F59E0B, #FF7A00, #F59E0B);
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
   --shadow-gold: 0 0 40px rgba(245, 158, 11, 0.15);
+}
+
+/* Page Transition Loading Bar */
+@keyframes topLoading {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+.top-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.top-loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: topLoading 2s infinite linear;
+}
+
+/* Spinner Loader */
+.loader-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-dominant);
+  position: relative;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(245, 158, 11, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--color-accent);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* =============================================
@@ -94,7 +148,8 @@ h4 { font-size: 18px; font-weight: 700; }
   -webkit-backdrop-filter: blur(var(--blur));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, backdrop-filter;
 }
 
 .glass:hover {
@@ -1164,6 +1219,15 @@ h4 { font-size: 18px; font-weight: 700; }
 .ad-agency-container {
   padding-bottom: 0;
   overflow-x: hidden;
+}
+
+.ad-services-section {
+  padding: 100px 0;
+}
+
+.ad-industries-section {
+  padding: 100px 0;
+  border-top: 1px solid var(--color-border);
 }
 
 /* Service Cards Refined Layout */

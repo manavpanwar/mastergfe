@@ -2,7 +2,9 @@
 
 import { Service } from "@/data/services";
 import Link from "next/link";
+import Image from "next/image";
 import MotionWrapper from "@/components/MotionWrapper";
+import DynamicServiceForm from "@/components/DynamicServiceForm";
 
 interface ServiceTemplateProps {
   service: Service;
@@ -30,10 +32,18 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
       />
 
       {/* ══ HERO ══════════════════════════════════ */}
-      <section
-        className={`service-page-hero ${service.heroImage ? 'has-image' : ''}`}
-        style={service.heroImage ? { backgroundImage: `url(${service.heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
-      >
+      <section className={`service-page-hero ${service.heroImage ? 'has-image' : ''}`}>
+        {service.heroImage && (
+          <Image 
+            src={service.heroImage} 
+            alt={service.title} 
+            fill 
+            priority
+            sizes="100vw"
+            style={{ objectFit: 'cover', zIndex: -1 }}
+            quality={85}
+          />
+        )}
         <div className="container">
           <MotionWrapper direction="down">
             <div className="service-hero-inner">
@@ -114,11 +124,11 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
                 <p className="comparison-label">{item.label}</p>
                 <div className="comparison-images">
                   <MotionWrapper direction="right" className="image-pair before">
-                    <img src={item.before} alt={`${item.label} Before`} className="reno-img" />
+                    <Image src={item.before} alt={`${item.label} Before`} width={400} height={300} className="reno-img" sizes="(max-width: 768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
                     <span className="img-badge">Before</span>
                   </MotionWrapper>
                   <MotionWrapper direction="left" className="image-pair after">
-                    <img src={item.after} alt={`${item.label} After`} className="reno-img" />
+                    <Image src={item.after} alt={`${item.label} After`} width={400} height={300} className="reno-img" sizes="(max-width: 768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
                     <span className="img-badge accent">After</span>
                   </MotionWrapper>
                 </div>
@@ -189,8 +199,8 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
               <MotionWrapper key={index} delay={0.1 * (index % 3)}>
                 <div className="listing-card">
                   {listing.image && (
-                    <div className="listing-image">
-                      <img src={listing.image} alt={listing.title} />
+                    <div className="listing-image" style={{ position: 'relative', height: '200px' }}>
+                      <Image src={listing.image} alt={listing.title} fill sizes="(max-width: 768px) 100vw, 400px" style={{ objectFit: 'cover' }} />
                       <span className="listing-badge">{listing.type}</span>
                     </div>
                   )}
@@ -222,6 +232,13 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
           </MotionWrapper>
         </section>
       )}
+
+      {/* ══ DYNAMIC FORM ═════════════════════════ */}
+      <section id="inquiry-form" className="svc-section container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <MotionWrapper direction="up">
+          <DynamicServiceForm serviceSlug={service.slug} serviceTitle={service.title} />
+        </MotionWrapper>
+      </section>
 
       {/* ══ CTA ═══════════════════════════════════ */}
       <section className="service-cta-section">
