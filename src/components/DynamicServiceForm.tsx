@@ -54,7 +54,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
     // Generic step transitions
     if (step === 1) {
       if (serviceSlug === "solar" || serviceSlug === "travel" || serviceSlug === "renovation" || 
-          serviceSlug === "business-legal" || serviceSlug === "advertising" || serviceSlug === "property") {
+          serviceSlug === "business-legal" || serviceSlug === "advertising" || serviceSlug === "property" || serviceSlug === "scrap") {
         setStep(2);
         return;
       }
@@ -619,6 +619,51 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
 
     if (step === 4) return renderContactForm(4);
   };
+  
+  const renderScrapForm = () => {
+    if (step === 1) {
+      const options = [
+        { id: "paper", label: "Paper & Cardboard", icon: "📰" },
+        { id: "metal", label: "Metals & Alloys", icon: "🏗️" },
+        { id: "large-app", label: "Large Appliances", icon: "🧺" },
+        { id: "it-waste", label: "IT & E-Waste", icon: "💻" },
+        { id: "small-app", label: "Small Appliances", icon: "🔌" },
+        { id: "vehicle", label: "Vehicle Scrap", icon: "🚗" },
+      ];
+
+      return (
+        <div className="form-step">
+          <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>What would you like to recycle?</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+            {options.map(opt => (
+              <button 
+                key={opt.id} 
+                className="glass-button" 
+                onClick={() => handleNext("scrapType", opt.id)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '16px',
+                  borderRadius: '16px',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid var(--color-border)',
+                  color: 'white',
+                  cursor: 'pointer',
+                  textAlign: 'left'
+                }}
+              >
+                <span style={{ fontSize: '24px' }}>{opt.icon}</span>
+                <span style={{ fontWeight: '600' }}>{opt.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (step === 2) return renderContactForm(2);
+  };
 
   return (
     <div className="dynamic-service-form glass" style={{ padding: '32px', borderRadius: '24px', position: 'relative' }}>
@@ -638,7 +683,8 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
        serviceSlug === "renovation" ? renderRenovationForm() : 
        serviceSlug === "business-legal" ? renderBusinessForm() : 
        serviceSlug === "advertising" ? renderAdvertisingForm() : 
-       serviceSlug === "property" ? renderPropertyForm() : (
+       serviceSlug === "property" ? renderPropertyForm() : 
+       serviceSlug === "scrap" ? renderScrapForm() : (
         <div style={{ textAlign: 'center', padding: '20px' }}>
           <p style={{ color: 'var(--color-text-muted)' }}>Custom form for {serviceTitle} is coming soon.</p>
           <a href="https://wa.me/919999999999" className="btn btn-primary" style={{ marginTop: '16px' }}>Chat on WhatsApp</a>

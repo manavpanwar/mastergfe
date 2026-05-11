@@ -43,6 +43,15 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,63 +61,21 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body>
         <PrismaticBurst 
-          intensity={0.8}
-          speed={0.2}
-          colors={['#0A0A0A', '#F59E0B', '#141414']}
-          animationType="rotate"
-          mixBlendMode="normal"
+          intensity={1.2}
+          speed={0.15}
+          colors={['#F59E0B', '#FF7A00', '#7C3AED', '#3B82F6']}
+          animationType="rotate3d"
+          mixBlendMode="lighten"
         />
         <StoreProvider>
-          <Header />
-          {children}
-          <Footer />
-          <WhatsAppFloat />
+          <div className="relative z-10">
+            <Header />
+            {children}
+            <Footer />
+            <WhatsAppFloat />
+          </div>
         </StoreProvider>
       </body>
     </html>
-  );
-}
-
-function Header() {
-  return (
-    <header className="site-header">
-      <div className="header-container">
-        <div className="header-logo-area">
-          <Link href="/" className="logo">
-            <div className="logo-crop">
-              <img src="/images/whitesq.png" alt="Master G Logo" className="logo-img" />
-            </div>
-          </Link>
-        </div>
-        <nav className="main-nav">
-          <ul>
-            <li><Link href="/#services">Services</Link></li>
-            <li><Link href="/#about">About</Link></li>
-            <UserMenu />
-          </ul>
-        </nav>
-        <div className="header-cta">
-          <a href="https://wa.me/919999999999" className="btn btn-primary cta-btn">Consult Now</a>
-          <MobileToggle />
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-contact">
-          <a href="tel:+919999999999" className="glass">📞 Call</a>
-          <a href="https://wa.me/919999999999" className="glass">💬 WhatsApp</a>
-          <span className="footer-hours">Available 9 AM – 7 PM</span>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Master G Consultancy. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
   );
 }

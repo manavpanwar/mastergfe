@@ -32,18 +32,7 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
       />
 
       {/* ══ HERO ══════════════════════════════════ */}
-      <section className={`service-page-hero ${service.heroImage ? 'has-image' : ''}`}>
-        {service.heroImage && (
-          <Image 
-            src={service.heroImage} 
-            alt={service.title} 
-            fill 
-            priority
-            sizes="100vw"
-            style={{ objectFit: 'cover', zIndex: -1 }}
-            quality={85}
-          />
-        )}
+      <section className="service-page-hero">
         <div className="container">
           <MotionWrapper direction="down">
             <div className="service-hero-inner">
@@ -52,15 +41,32 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
                 <div className="service-hero-icon-circle">{service.icon}</div>
                 <h1>{service.title}</h1>
                 <p className="service-tagline">{service.tagline}</p>
+                
+                <div className="service-hero-cta">
+                  <a
+                    href={`https://wa.me/919999999999?text=Hi%2C%20I'm%20interested%20in%20${encodeURIComponent(service.title)}%20services`}
+                    className="btn btn-primary"
+                  >
+                    {service.ctaButtonText || "Get Free Consultation"}
+                  </a>
+                </div>
               </div>
-              <div className="service-hero-cta">
-                <a
-                  href={`https://wa.me/919999999999?text=Hi%2C%20I'm%20interested%20in%20${encodeURIComponent(service.title)}%20services`}
-                  className="btn btn-primary"
-                >
-                  {service.ctaButtonText || "Get Free Consultation"}
-                </a>
-              </div>
+
+              {service.heroImage && (
+                <div className="service-hero-img-col">
+                  <div className="hero-img-wrap">
+                    <Image 
+                      src={service.heroImage} 
+                      alt={service.title} 
+                      width={600}
+                      height={400}
+                      priority
+                      className="side-hero-img"
+                      style={{ objectPosition: service.heroObjectPosition || 'center' }}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </MotionWrapper>
         </div>
@@ -78,9 +84,27 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
           {service.highlights.map((highlight, index) => (
             <MotionWrapper key={index} delay={0.08 * (index % 3)}>
               <div className="highlight-item">
-                <div className="highlight-icon">{highlight.icon}</div>
-                <h4>{highlight.title}</h4>
-                <p>{highlight.desc}</p>
+                {highlight.image && (
+                  <div className="highlight-bg-container">
+                    <Image 
+                      src={highlight.image} 
+                      alt={highlight.title} 
+                      fill 
+                      priority={highlight.priority}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="highlight-bg-img"
+                      style={{ objectPosition: highlight.objectPosition || 'top' }}
+                    />
+                    <div className="highlight-overlay"></div>
+                  </div>
+                )}
+                <div className="highlight-content">
+                  <div className="highlight-icon-wrap">
+                    <div className="highlight-icon">{highlight.icon}</div>
+                  </div>
+                  <h4>{highlight.title}</h4>
+                  <p>{highlight.desc}</p>
+                </div>
               </div>
             </MotionWrapper>
           ))}

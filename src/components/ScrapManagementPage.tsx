@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MotionWrapper from "@/components/MotionWrapper";
+import Image from "next/image";
+import { SERVICES } from "@/data/services";
 
 // --- Data ---
 const SCRAP_CATEGORIES = [
@@ -11,37 +13,44 @@ const SCRAP_CATEGORIES = [
     title: "Paper & Cardboard",
     icon: "📰",
     desc: "Premium recycling for all your paper-based materials.",
-    tags: ["Newspaper", "Office Paper (A3/A4)", "Books", "Cardboard", "Magazines"]
+    tags: ["Newspaper", "Office Paper (A3/A4)", "Books", "Cardboard", "Magazines"],
+    image: "/images/cardboardscrap.jpeg",
+    priority: true
   },
   {
     title: "Metals & Alloys",
     icon: "🏗️",
     desc: "Best scrap value for all types of ferrous and non-ferrous metals.",
-    tags: ["Iron", "Copper", "Aluminum", "Brass", "Steel", "Heavy Metal"]
+    tags: ["Iron", "Copper", "Aluminum", "Brass", "Steel", "Heavy Metal"],
+    image: "/images/metalscrap.jpeg"
   },
   {
     title: "Large Appliances",
     icon: "🧺",
     desc: "Professional dismantling and disposal of heavy household assets.",
-    tags: ["Washing Machine", "Fridge", "AC (Window/Split)", "Geyser", "Gym Equipment"]
+    tags: ["Washing Machine", "Fridge", "AC (Window/Split)", "Geyser", "Gym Equipment"],
+    image: "/images/largeappscrap.jpeg"
   },
   {
     title: "IT & E-Waste",
     icon: "💻",
     desc: "Secure and eco-friendly processing of electronic components.",
-    tags: ["Laptop", "CPU", "Monitor", "Printer", "LED TV", "Batteries"]
+    tags: ["Laptop", "CPU", "Monitor", "Printer", "LED TV", "Batteries"],
+    image: "/images/itscrap.jpeg"
   },
   {
     title: "Small Appliances",
     icon: "🔌",
     desc: "Recycling solutions for compact home and office gadgets.",
-    tags: ["Microwave", "Mixer", "Induction", "Vacuum Cleaner", "Router/Modem"]
+    tags: ["Microwave", "Mixer", "Induction", "Vacuum Cleaner", "Router/Modem"],
+    image: "/images/smallappscrap.jpeg"
   },
   {
     title: "Vehicle Scrap",
     icon: "🚗",
     desc: "Complete documentation and official scrap handling for old vehicles.",
-    tags: ["Car", "Bike", "Scooty/Scooter", "Spare Parts"]
+    tags: ["Car", "Bike", "Scooty/Scooter", "Spare Parts"],
+    image: "/images/vehichlescrap.jpeg"
   }
 ];
 
@@ -60,22 +69,35 @@ const STEPS = [
 
 // --- Components ---
 
-const ScrapCategoryCard = ({ category }: { category: typeof SCRAP_CATEGORIES[0] }) => {
+const ScrapCategoryCard = ({ category }: { category: any }) => {
   return (
-    <div className="ad-service-card glass">
-      <div className="ad-card-top">
-        <div className="ad-card-icon">{category.icon}</div>
-        <div className="ad-card-head">
-          <h3>{category.title}</h3>
-          <p className="ad-card-desc">{category.desc}</p>
+    <div className="highlight-item">
+      {category.image && (
+        <div className="highlight-bg-container">
+          <Image 
+            src={category.image} 
+            alt={category.title} 
+            fill 
+            priority={category.priority}
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="highlight-bg-img"
+          />
+          <div className="highlight-overlay"></div>
         </div>
-      </div>
-      <div className="ad-card-content">
-        <ul className="ad-card-items">
-          {category.tags.map((tag, idx) => (
-            <li key={idx}>{tag}</li>
-          ))}
-        </ul>
+      )}
+      <div className="highlight-content">
+        <div className="highlight-icon-wrap">
+          <div className="highlight-icon">{category.icon}</div>
+        </div>
+        <h4>{category.title}</h4>
+        <p style={{ fontSize: '14px', marginBottom: '12px' }}>{category.desc}</p>
+        <div className="ad-card-content" style={{ background: 'transparent', padding: 0 }}>
+          <ul className="ad-card-items" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            {category.tags.map((tag: string, idx: number) => (
+              <li key={idx} style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 8px', borderRadius: '4px', fontSize: '12px' }}>{tag}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -106,6 +128,22 @@ export default function ScrapManagementPage() {
                   Professional waste management for a greener tomorrow.
                 </p>
               </div>
+
+              {SERVICES.scrap.heroImage && (
+                <div className="service-hero-img-col">
+                  <div className="hero-img-wrap">
+                    <Image 
+                      src={SERVICES.scrap.heroImage} 
+                      alt="Scrap Management" 
+                      width={600}
+                      height={400}
+                      priority
+                      className="side-hero-img"
+                    />
+                  </div>
+                </div>
+              )}
+
               <div className="service-hero-cta">
                 <div className="cta-group">
                   <a href="#pickup" className="btn btn-primary">Schedule Pickup</a>

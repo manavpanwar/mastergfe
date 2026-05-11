@@ -1,15 +1,19 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import MotionWrapper from "@/components/MotionWrapper";
+import Image from "next/image";
 
 const SERVICES = [
-  { slug: "education", title: "Education", icon: "🎓", desc: "Expert guidance for admissions, professional tutoring, and fitness training." },
-  { slug: "solar", title: "Solar Energy", icon: "☀️", desc: "Sustainable On-grid, Off-grid, and Hybrid solar systems for homes and businesses." },
-  { slug: "travel", title: "Tours & Travel", icon: "✈️", desc: "Premium travel packages and luxury transport across the Himalayas." },
-  { slug: "renovation", title: "Renovation", icon: "🔨", desc: "Luxury home transformations from modular kitchens to full interior overhauls." },
-  { slug: "scrap", title: "Scrap & Metal", icon: "♻️", desc: "Responsible e-waste recycling, industrial scrap, and CNC metal fabrication." },
-  { slug: "business-legal", title: "Business & Legal", icon: "⚖️", desc: "Fast-track company registration, GST filing, and full legal compliance." },
-  { slug: "advertising", title: "Advertising", icon: "📢", desc: "Multi-channel media campaigns that build brands and drive real results." },
-  { slug: "property", title: "Property", icon: "🏠", desc: "Prime residential and commercial real estate — buying, selling, and renting." },
+  { slug: "education", title: "Education", icon: "🎓", desc: "Expert guidance for admissions, professional tutoring, and fitness training.", image: "/images/education_hero.png" },
+  { slug: "solar", title: "Solar Energy", icon: "☀️", desc: "Sustainable On-grid, Off-grid, and Hybrid solar systems for homes and businesses.", image: "/images/solar_hero.png" },
+  { slug: "travel", title: "Tours & Travel", icon: "✈️", desc: "Premium travel packages and luxury transport across the Himalayas.", image: "/images/travel_hero.png" },
+  { slug: "renovation", title: "Renovation", icon: "🔨", desc: "Luxury home transformations from modular kitchens to full interior overhauls.", image: "/images/renovation_hero.png" },
+  { slug: "scrap", title: "Scrap & Metal", icon: "♻️", desc: "Responsible e-waste recycling, industrial scrap, and CNC metal fabrication.", image: "/images/scrap_hero.png" },
+  { slug: "business-legal", title: "Business & Legal", icon: "⚖️", desc: "Fast-track company registration, GST filing, and full legal compliance.", image: "/images/business_legal_hero.png" },
+  { slug: "advertising", title: "Advertising", icon: "📢", desc: "Multi-channel media campaigns that build brands and drive real results.", image: "/images/advertising_hero.png" },
+  { slug: "property", title: "Property", icon: "🏠", desc: "Prime residential and commercial real estate — buying, selling, and renting.", image: "/images/property_hero.png" },
 ];
 
 const HERO_STATS = [
@@ -27,13 +31,34 @@ const ABOUT_STATS = [
 ];
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const logoOpacity = Math.max(0, 1 - scrollY / 300);
+  const logoScale = Math.max(0.8, 1 - scrollY / 1000);
+  const logoY = scrollY * 0.2;
+
   return (
     <main id="app">
       {/* ══ HERO ══════════════════════════════════ */}
       <section className="hero">
         <div className="hero-content">
           <MotionWrapper direction="down" delay={0.1}>
-            <div className="hero-logo-container">
+            <div 
+              className="hero-logo-container"
+              style={{ 
+                opacity: logoOpacity,
+                transform: `translateY(${logoY}px) scale(${logoScale})`,
+                transition: 'none'
+              }}
+            >
               <img src="/images/whitelogo.png" alt="Master G Logo" className="hero-logo" />
             </div>
             <span className="hero-eyebrow">⚡ The Gold Standard of Consulting</span>
@@ -83,11 +108,17 @@ export default function Home() {
               delay={0.08 * (index % 3)}
               className="service-card-wrapper"
             >
-              <Link href={`/services/${service.slug}`} className="service-card">
-                <span className="card-icon">{service.icon}</span>
-                <h3>{service.title}</h3>
-                <p className="service-desc">{service.desc}</p>
-                <span className="learn-more">Learn More →</span>
+              <Link href={`/services/${service.slug}`} className="service-card has-bg">
+                <div className="card-bg">
+                   <Image src={service.image} alt={service.title} fill sizes="(max-width: 768px) 100vw, 400px" className="card-bg-img" style={{ objectFit: 'cover' }} />
+                   <div className="card-overlay"></div>
+                </div>
+                <div className="card-content-inner">
+                  <span className="card-icon">{service.icon}</span>
+                  <h3>{service.title}</h3>
+                  <p className="service-desc">{service.desc}</p>
+                  <span className="learn-more">Learn More →</span>
+                </div>
               </Link>
             </MotionWrapper>
           ))}

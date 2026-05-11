@@ -2,6 +2,9 @@ export interface Highlight {
   icon: string;
   title: string;
   desc: string;
+  image?: string;
+  objectPosition?: string;
+  priority?: boolean;
 }
 
 export interface Step {
@@ -41,6 +44,7 @@ export interface Service {
   listings?: Listing[];
   specialFeature?: string;
   heroImage?: string;
+  heroObjectPosition?: string;
   ctaTitle: string;
   ctaText: string;
   ctaButtonText?: string;
@@ -57,13 +61,15 @@ export const SERVICES: Record<string, Service> = {
     title: "Educational Services",
     icon: "🎓",
     tagline: "Empowering students and professionals through strategic academic and career guidance.",
+    heroImage: "/images/education_hero.png",
+    heroObjectPosition: "center 80%",
     highlights: [
-      { icon: "🏫", title: "School & College Admissions", desc: "Expert guidance for KG-12, UG, and PG admissions in top-tier institutions nationwide." },
-      { icon: "👨‍🏫", title: "Elite Tutoring & Coaching", desc: "Personalized home and online tutoring for core subjects, competitive exams, and language proficiency." },
-      { icon: "💼", title: "Staff & Career Panel", desc: "Connecting schools and colleges with top-tier educators, professors, and administrative professionals." },
-      { icon: "🧘", title: "Yoga & Fitness Training", desc: "Certified gym trainers and yoga instructors for personal coaching and institutional health programs." },
-      { icon: "🔬", title: "Skill Development", desc: "Vocational training and skill-based workshops to bridge the gap between academia and industry." },
-      { icon: "🌍", title: "Study Abroad Support", desc: "End-to-end assistance for international admissions, visa processing, and pre-departure orientation." }
+      { icon: "🏫", title: "School & College Admissions", desc: "Expert guidance for KG-12, UG, and PG admissions in top-tier institutions nationwide.", image: "/images/screen.png" },
+      { icon: "👨‍🏫", title: "Elite Tutoring & Coaching", desc: "Personalized home and online tutoring for core subjects, competitive exams, and language proficiency.", image: "/images/tutoring.png" },
+      { icon: "💼", title: "Staff & Career Panel", desc: "Connecting schools and colleges with top-tier educators, professors, and administrative professionals.", image: "/images/career.png", objectPosition: "center 70%" },
+      { icon: "🧘", title: "Yoga & Fitness Training", desc: "Certified gym trainers and yoga instructors for personal coaching and institutional health programs.", image: "/images/yoga.png" },
+      { icon: "🔬", title: "Skill Development", desc: "Vocational training and skill-based workshops to bridge the gap between academia and industry.", image: "/images/skill dev.png" },
+      { icon: "🌍", title: "Study Abroad Support", desc: "End-to-end assistance for international admissions, visa processing, and pre-departure orientation.", image: "/images/abroad.png" }
     ],
     benefits: [
       "Access to exclusive institutional networks",
@@ -84,13 +90,14 @@ export const SERVICES: Record<string, Service> = {
     title: "Solar Energy Solutions",
     icon: "☀️",
     tagline: "Sustainable, cost-effective power solutions for a cleaner and brighter tomorrow.",
+    heroImage: "/images/solar_hero.png",
     highlights: [
-      { icon: "🔌", title: "On-Grid Systems", desc: "Maximize savings and earn credits by feeding excess solar energy back into the utility grid." },
-      { icon: "🔋", title: "Off-Grid Solutions", desc: "Independent power systems with high-capacity battery storage for remote locations and 24/7 backup." },
-      { icon: "🔄", title: "Hybrid Solar Power", desc: "The best of both worlds — grid-connected efficiency with the security of battery storage." },
-      { icon: "🏠", title: "Residential Installation", desc: "Custom rooftop solar setups designed to slash your monthly electricity bills by up to 90%." },
-      { icon: "🏛️", title: "Commercial & Industrial", desc: "Large-scale solar plants for factories, malls, and offices to reduce operational costs and carbon footprint." },
-      { icon: "🛠️", title: "Maintenance & AMC", desc: "Routine cleaning, performance monitoring, and rapid repair services to ensure maximum efficiency." }
+      { icon: "🔌", title: "On-Grid Systems", desc: "Maximize savings and earn credits by feeding excess solar energy back into the utility grid.", image: "/images/ongridsolar.jpeg", priority: true },
+      { icon: "🔋", title: "Off-Grid Solutions", desc: "Independent power systems with high-capacity battery storage for remote locations and 24/7 backup.", image: "/images/offgridsolar.png" },
+      { icon: "🔄", title: "Hybrid Solar Power", desc: "The best of both worlds — grid-connected efficiency with the security of battery storage.", image: "/images/hybridsolar.jpeg" },
+      { icon: "🏠", title: "Residential Installation", desc: "Custom rooftop solar setups designed to slash your monthly electricity bills by up to 90%.", image: "/images/residsolar.jpeg" },
+      { icon: "🏛️", title: "Commercial & Industrial", desc: "Large-scale solar plants for factories, malls, and offices to reduce operational costs and carbon footprint.", image: "/images/commsolar.jpeg" },
+      { icon: "🛠️", title: "Maintenance & AMC", desc: "Routine cleaning, performance monitoring, and rapid repair services to ensure maximum efficiency.", image: "/images/maintsolar.jpeg" }
     ],
     benefits: [
       "Zero-carbon footprint and eco-friendly energy",
@@ -118,12 +125,12 @@ export const SERVICES: Record<string, Service> = {
     icon: "✈️",
     tagline: "Discover the unseen landscapes and cultural heritage with curated travel experiences.",
     highlights: [
-      { icon: "🚐", title: "Bus / Taxi / Traveller Booking", desc: "Wide range of AC Buses, Taxis, and Luxury Travellers for group family trips and corporate tours." },
-      { icon: "🇮🇳", title: "All India Tour Packages", desc: "Curated experiences across the diverse landscapes of India, from coastal retreats to cultural hubs." },
-      { icon: "🏛️", title: "North Indian Tour Packages", desc: "Explore the heritage and scenic beauty of North India with our expert-guided itineraries." },
-      { icon: "🙏", title: "Tirath Dham / 4 Dham", desc: "Spiritual journeys to the sacred 4 Dhams and various religious sites across India with full logistical support." },
-      { icon: "🏔️", title: "Himachal & Uttarakhand", desc: "Breathtaking mountain escapes, hill station tours, and adventure packages in the heart of the Himalayas." },
-      { icon: "❄️", title: "J&K and Ladakh", desc: "Exclusive tours to the paradise of Kashmir and the rugged, majestic terrains of Leh and Ladakh." }
+      { icon: "🚐", title: "Bus / Taxi / Traveller Booking", desc: "Wide range of AC Buses, Taxis, and Luxury Travellers for group family trips and corporate tours.", image: "/images/travellertravel.jpeg", priority: true },
+      { icon: "🇮🇳", title: "All India Tour Packages", desc: "Curated experiences across the diverse landscapes of India, from coastal retreats to cultural hubs.", image: "/images/allindtravel.jpeg" },
+      { icon: "🏛️", title: "North Indian Tour Packages", desc: "Explore the heritage and scenic beauty of North India with our expert-guided itineraries.", image: "/images/northindiatravel.jpeg" },
+      { icon: "🙏", title: "Tirath Dham / 4 Dham", desc: "Spiritual journeys to the sacred 4 Dhams and various religious sites across India with full logistical support.", image: "/images/4dhamtravel.jpeg" },
+      { icon: "🏔️", title: "Himachal & Uttarakhand", desc: "Breathtaking mountain escapes, hill station tours, and adventure packages in the heart of the Himalayas.", image: "/images/himachaltravel.jpeg" },
+      { icon: "❄️", title: "J&K and Ladakh", desc: "Exclusive tours to the paradise of Kashmir and the rugged, majestic terrains of Leh and Ladakh.", image: "/images/j&ktravel.jpeg" }
     ],
     benefits: [
       "Verified local guides with deep regional knowledge",
@@ -132,7 +139,7 @@ export const SERVICES: Record<string, Service> = {
       "Strict safety and hygiene protocols",
       "Flexible modification and cancellation policies"
     ],
-    heroImage: "/images/travel-hero.png",
+    heroImage: "/images/travel_hero.png",
     ctaTitle: "Start Your Journey",
     ctaText: "The world is calling. Where would you like to go next? Let us handle the planning.",
     ctaButtonText: "Book Your Trip",
@@ -145,20 +152,14 @@ export const SERVICES: Record<string, Service> = {
     title: "Home Renovation",
     icon: "🔨",
     tagline: "Breathe new life into your spaces with expert design and premium craftsmanship.",
+    heroImage: "/images/renovation_hero.png",
     highlights: [
-      { icon: "🎨", title: "Interior & Exterior Design", desc: "Modern aesthetic overhauls, 3D visualization, and structural modifications for a fresh look." },
-      { icon: "🖌️", title: "Painting & Waterproofing", desc: "Premium texture paints and advanced chemical waterproofing to protect your home for years." },
-      { icon: "🪵", title: "Designer Flooring", desc: "Installation of Italian marble, hardwood, anti-skid tiles, and luxury vinyl flooring." },
-      { icon: "👩‍🍳", title: "Modular Kitchens", desc: "Space-saving, ergonomic kitchen designs with soft-close cabinetry and premium hobs." },
-      { icon: "⚡", title: "Electrical & Plumbing", desc: "Complete concealed wiring, luxury lighting fixtures, and high-pressure plumbing systems." },
-      { icon: "🏘️", title: "Structural Repairs", desc: "Fixing wall cracks, dampness treatment, and structural strengthening of old buildings." }
-    ],
-    comparisons: [
-      {
-        label: "Living Room Transformation",
-        before: "/images/reno_before.png",
-        after: "/images/reno_after.png"
-      }
+      { icon: "🎨", title: "Interior & Exterior Design", desc: "Modern aesthetic overhauls, 3D visualization, and structural modifications for a fresh look.", image: "/images/intandextrenovation.jpeg", priority: true },
+      { icon: "🖌️", title: "Painting & Waterproofing", desc: "Premium texture paints and advanced chemical waterproofing to protect your home for years.", image: "/images/paintrenovation.jpeg" },
+      { icon: "🪵", title: "Designer Flooring", desc: "Installation of Italian marble, hardwood, anti-skid tiles, and luxury vinyl flooring.", image: "/images/desghinfloorrenovation.jpeg" },
+      { icon: "👩‍🍳", title: "Modular Kitchens", desc: "Space-saving, ergonomic kitchen designs with soft-close cabinetry and premium hobs.", image: "/images/kitchenrenovation.jpeg" },
+      { icon: "⚡", title: "Electrical & Plumbing", desc: "Complete concealed wiring, luxury lighting fixtures, and high-pressure plumbing systems.", image: "/images/electricandplumrenovation.jpeg" },
+      { icon: "🏘️", title: "Structural Repairs", desc: "Fixing wall cracks, dampness treatment, and structural strengthening of old buildings.", image: "/images/structurerenovation.jpeg" }
     ],
     ctaTitle: "Revitalize Your Home",
     ctaText: "Get an expert virtual consultation and a detailed estimate for your dream project.",
@@ -172,37 +173,44 @@ export const SERVICES: Record<string, Service> = {
     title: "Eco-Friendly Scrap management",
     icon: "♻️",
     tagline: "Professional Doorstep Scrap Collection & Industrial Waste Management.",
-    heroImage: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "/images/scrap_hero.png",
     highlights: [
-      { 
-        title: "Paper & Cardboard", 
-        icon: "📰", 
-        desc: "Newspapers, Office A3/A4 documents, Books, and Cardboard boxes." 
+      {
+        title: "Paper & Cardboard",
+        icon: "📰",
+        desc: "Newspapers, Office A3/A4 documents, Books, and Cardboard boxes.",
+        image: "/images/cardboardscrap.jpeg",
+        priority: true
       },
-      { 
-        title: "Metals & Alloys", 
-        icon: "🏗️", 
-        desc: "Iron, Copper, Aluminum, Brass, Steel, and Heavy industrial scrap." 
+      {
+        title: "Metals & Alloys",
+        icon: "🏗️",
+        desc: "Iron, Copper, Aluminum, Brass, Steel, and Heavy industrial scrap.",
+        image: "/images/metalscrap.jpeg"
       },
-      { 
-        title: "Home Appliances", 
-        icon: "🧺", 
-        desc: "Washing Machines (Auto/Semi), Fridges, ACs, Geysers, and Gym equipment." 
+      {
+        title: "Home Appliances",
+        icon: "🧺",
+        desc: "Washing Machines (Auto/Semi), Fridges, ACs, Geysers, and Gym equipment.",
+        image: "/images/largeappscrap.jpeg"
       },
-      { 
-        title: "IT & E-Waste", 
-        icon: "💻", 
-        desc: "Laptops, CPUs, Printers, Monitors, LCD/LED TVs, and used Batteries." 
+      {
+        title: "IT & E-Waste",
+        icon: "💻",
+        desc: "Laptops, CPUs, Printers, Monitors, LCD/LED TVs, and used Batteries.",
+        image: "/images/itscrap.jpeg"
       },
-      { 
-        title: "Small Appliances", 
-        icon: "🔌", 
-        desc: "Microwaves, Fans, Grinders, Vacuum cleaners, and Routers/Modems." 
+      {
+        title: "Small Appliances",
+        icon: "🔌",
+        desc: "Microwaves, Fans, Grinders, Vacuum cleaners, and Routers/Modems.",
+        image: "/images/smallappscrap.jpeg"
       },
-      { 
-        title: "Vehicle Scrap", 
-        icon: "🚗", 
-        desc: "Official handling and best scrap value for Bikes, Scooters, and Cars." 
+      {
+        title: "Vehicle Scrap",
+        icon: "🚗",
+        desc: "Official handling and best scrap value for Bikes, Scooters, and Cars.",
+        image: "/images/vehichlescrap.jpeg"
       }
     ],
     benefits: [
@@ -236,12 +244,13 @@ export const SERVICES: Record<string, Service> = {
     title: "Business & Legal",
     icon: "⚖️",
     tagline: "Simplify your business journey with expert legal and registration consultancy.",
+    heroImage: "/images/business_legal_hero.png",
     highlights: [
-      { icon: "📑", title: "Taxation & Registration", desc: "Expert guidance for GST, Income Tax registration, and comprehensive taxation planning." },
-      { icon: "🏢", title: "Company Registration", desc: "Hassle-free incorporation for Private Ltd, Public Ltd, and One Person Company (OPC) structures." },
-      { icon: "📝", title: "Firm / MSME / LLP", desc: "Official registration for partnership firms, MSME (UDYAM), and Limited Liability Partnerships." },
-      { icon: "🚀", title: "Startup India / FSSAI", desc: "Specialized licensing for startups (DPIIT recognition) and FSSAI food safety certifications." },
-      { icon: "⚖️", title: "Investment & Legal", desc: "Senior legal consultancy for business investments, contract drafting, and corporate compliance." }
+      { icon: "📑", title: "Taxation & Registration", desc: "Expert guidance for GST, Income Tax registration, and comprehensive taxation planning.", image: "/images/taxbuiss&leg.jpeg", priority: true },
+      { icon: "🏢", title: "Company Registration", desc: "Hassle-free incorporation for Private Ltd, Public Ltd, and One Person Company (OPC) structures.", image: "/images/companybuis&legal.jpeg" },
+      { icon: "📝", title: "Firm / MSME / LLP", desc: "Official registration for partnership firms, MSME (UDYAM), and Limited Liability Partnerships.", image: "/images/msmebuis&legal.jpeg" },
+      { icon: "🚀", title: "Startup India / FSSAI", desc: "Specialized licensing for startups (DPIIT recognition) and FSSAI food safety certifications.", image: "/images/startupbuiss&legal.jpeg" },
+      { icon: "⚖️", title: "Investment & Legal", desc: "Senior legal consultancy for business investments, contract drafting, and corporate compliance.", image: "/images/investmentbuiss&legal.jpeg" }
     ],
     steps: [
       { title: "Consultation", desc: "Initial discussion to understand your business structure and requirements." },
@@ -262,13 +271,18 @@ export const SERVICES: Record<string, Service> = {
     title: "Advertising & Marketing",
     icon: "📢",
     tagline: "Strategic brand building and high-impact media campaigns for maximum reach.",
+    heroImage: "/images/advertising_hero.png",
     highlights: [
-      { icon: "🏛️", title: "Offline Advertising", desc: "Premium Printing, Hoardings, Flex, and Static Outdoor media in high-traffic city zones." },
-      { icon: "🚀", title: "Digital Marketing", desc: "Result-driven SEO, Google Ads (PPC), and Performance Marketing to scale your online presence." },
-      { icon: "🚌", title: "Transit Media", desc: "High-impact advertising on Buses, Auto-rickshaws, and other public transport networks." },
-      { icon: "⭐", title: "Brand Promotion", desc: "Strategic events, product launches, and BTL activities to drive brand engagement." },
-      { icon: "📱", title: "Social Media Handling", desc: "Expert management of Instagram, FB, and LinkedIn to build a loyal community." },
-      { icon: "🎥", title: "Content Creation", desc: "Professional photography, video ads, and creative copywriting for your marketing needs." }
+      { icon: "🚌", title: "Transit Media Advertising", desc: "Auto, Bus, Metro, and Train branding for massive urban reach.", image: "/images/transitad.jpeg", priority: true },
+      { icon: "🏗️", title: "Outdoor Media", desc: "Hoardings, Glow Boards, and Bus Shelter placements in prime city locations.", image: "/images/outdoorad.jpeg" },
+      { icon: "🚶", title: "Human Advertising / BTL", desc: "Direct engagement via Human Billboards, Pamphlet distribution, and Canopy promotions.", image: "/images/humanad.jpeg" },
+      { icon: "🏙️", title: "Society / RWA Gate", desc: "Hyper-local branding within premium residential complexes and gated communities." },
+      { icon: "📻", title: "Radio Advertising", desc: "Prime-time jingles and RJ mentions across top FM stations for maximum recall.", image: "/images/radioad.jpeg" },
+      { icon: "📰", title: "Newspaper Advertising", desc: "Full-page ads, inserts, and classifieds in leading national and regional dailies.", image: "/images/newsppad.jpeg" },
+      { icon: "🖨️", title: "Printing Services", desc: "High-quality corporate brochures, visiting cards, and promotional merchandise.", image: "/images/printingad.jpeg" },
+      { icon: "🖼️", title: "Flex Printing", desc: "Large-format vinyl banners, event backdrops, and environmental branding.", image: "/images/flexad.jpeg" },
+      { icon: "🛠️", title: "Manufacturing / Promo Assets", desc: "Custom production of canopies, standees, and promotional event hardware.", image: "/images/standad.jpeg" },
+      { icon: "🚀", title: "Digital Marketing", desc: "Data-driven SEO, Google Ads, Meta Ads, and Brand Strategy dominance.", image: "/images/digitalad.jpeg" }
     ],
     stats: [
       { label: "Campaigns Run", value: "800+" },
@@ -287,14 +301,14 @@ export const SERVICES: Record<string, Service> = {
     slug: "property",
     title: "Property Excellence",
     icon: "🏠",
-    tagline: "Your premier destination for residential luxury and commercial investments.",
+    heroImage: "/images/property_hero.png",
     highlights: [
-      { icon: "🔑", title: "Residential Sales", desc: "Exclusive portfolio of Luxury Flats, Independent Houses, and residential plots in prime sectors." },
-      { icon: "🏢", title: "Commercial Space", desc: "High-ROI Retail Shops, Office Spaces, and Industrial Land for your business expansion." },
-      { icon: "🏠", title: "Rental & Leasing", desc: "End-to-end management for tenants and owners, ensuring fair deals and verified backgrounds." },
-      { icon: "🛏️", title: "Dedicated PG/Rooms", desc: "Quality Room rentals and PG collaborations for students and working professionals (Girls/Boys)." },
-      { icon: "📐", title: "Property Valuation", desc: "Professional market analysis and valuation reports for informed investment decisions." },
-      { icon: "📜", title: "Legal Verification", desc: "Title deeds check, RERA compliance, and secondary market due diligence services." }
+      { icon: "🔑", title: "Residential Sales", desc: "Exclusive portfolio of Luxury Flats, Independent Houses, and residential plots in prime sectors.", image: "/images/resiprop.jpeg", priority: true },
+      { icon: "🏢", title: "Commercial Space", desc: "High-ROI Retail Shops, Office Spaces, and Industrial Land for your business expansion.", image: "/images/commprop.jpeg" },
+      { icon: "🏠", title: "Rental & Leasing", desc: "End-to-end management for tenants and owners, ensuring fair deals and verified backgrounds.", image: "/images/rentalprop.jpeg" },
+      { icon: "🛏️", title: "Dedicated PG/Rooms", desc: "Quality Room rentals and PG collaborations for students and working professionals (Girls/Boys).", image: "/images/pgprop.jpeg" },
+      { icon: "📐", title: "Property Valuation", desc: "Professional market analysis and valuation reports for informed investment decisions.", image: "/images/valuationprop.jpeg" },
+      { icon: "📜", title: "Legal Verification", desc: "Title deeds check, RERA compliance, and secondary market due diligence services.", image: "/images/legalprop.jpeg" }
     ],
     ctaTitle: "Find Your Perfect Space",
     ctaText: "Browse our handpicked listings or list your property with us to reach serious buyers today.",

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Texture } from 'ogl';
+import './PrismaticBurst.css';
 
 type Offset = { x?: number | string; y?: number | string };
 type AnimationType = 'rotate' | 'rotate3d' | 'hover';
@@ -131,7 +132,7 @@ void main(){
       hoverMat = rotY(ang.y) * rotX(ang.x);
     }
 
-    for (int i = 0; i < 44; ++i) {
+    for (int i = 0; i < 16; ++i) {
         vec3 P = marchT * dir;
         P.z -= 2.0;
         float rad = length(P);
@@ -251,7 +252,7 @@ const PrismaticBurst = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.2); // Cap at 1.2 for performance
     const renderer = new Renderer({ dpr, alpha: false, antialias: false });
     rendererRef.current = renderer;
 
@@ -455,7 +456,7 @@ const PrismaticBurst = ({
     program.uniforms.uColorCount.value = count;
   }, [intensity, speed, animationType, colors, distort, offset, rayCount]);
 
-  return <div className="w-full h-full relative overflow-hidden" ref={containerRef} />;
+  return <div className="prismatic-burst-container" ref={containerRef} />;
 };
 
 export default PrismaticBurst;
