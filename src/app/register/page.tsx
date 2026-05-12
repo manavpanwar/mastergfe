@@ -47,13 +47,13 @@ export default function RegisterPage() {
       <section className="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '100px', paddingBottom: '50px' }}>
         <div className="container" style={{ maxWidth: '600px' }}>
           <MotionWrapper direction="down">
-            <div className="login-card glass" style={{ padding: '20px 48px 32px', borderRadius: '22px', textAlign: 'left' }}>
+            <div className="login-card glass" style={{ padding: 'min(32px, 8vw) min(48px, 6vw)', borderRadius: '22px', textAlign: 'left' }}>
               <div style={{ textAlign: 'center', marginBottom: '0' }}>
                 <Link href="/">
-                  <img src="/images/whitelogo.png" alt="Master G" style={{ height: '250px', margin: '-80px auto -50px' }} />
+                  <img src="/images/whitelogo.png" alt="Master G" style={{ height: 'min(180px, 40vw)', margin: '-20px auto -30px', width: 'auto', objectFit: 'contain' }} />
                 </Link>
-                <h2 className="accent-text" style={{ fontSize: '32px' }}>Create Account</h2>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '15px', marginTop: '0' }}>
+                <h2 className="accent-text" style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}>Create Account</h2>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '15px', marginTop: '4px' }}>
                   Join Master G Consultancy today
                 </p>
               </div>
@@ -74,9 +74,9 @@ export default function RegisterPage() {
               )}
 
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="responsive-grid-2" style={{ gap: '16px' }}>
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>Full Name</label>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Full Name</label>
                     <input 
                       type="text" 
                       placeholder="John Doe" 
@@ -84,19 +84,19 @@ export default function RegisterPage() {
                       style={{
                         background: 'var(--color-secondary)',
                         border: '1px solid var(--color-border)',
-                        padding: '12px 16px',
-                        borderRadius: '12px',
+                        padding: '14px 18px',
+                        borderRadius: '14px',
                         color: 'white',
-                        fontSize: '14px',
+                        fontSize: '15px',
                         outline: 'none',
                       }}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     />
                   </div>
-
+ 
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>Email Address</label>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Email Address</label>
                     <input 
                       type="email" 
                       placeholder="name@company.com" 
@@ -105,7 +105,7 @@ export default function RegisterPage() {
                         width: '100%',
                         background: 'var(--color-secondary)',
                         border: '1px solid var(--color-border)',
-                        padding: '16px 20px',
+                        padding: '14px 18px',
                         borderRadius: '14px',
                         color: 'white',
                         fontSize: '15px',
@@ -117,9 +117,9 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="responsive-grid-2" style={{ gap: '16px' }}>
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>Password</label>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Password</label>
                     <input 
                       type="password" 
                       placeholder="••••••••" 
@@ -128,7 +128,7 @@ export default function RegisterPage() {
                         width: '100%',
                         background: 'var(--color-secondary)',
                         border: '1px solid var(--color-border)',
-                        padding: '16px 20px',
+                        padding: '14px 18px',
                         borderRadius: '14px',
                         color: 'white',
                         fontSize: '15px',
@@ -140,18 +140,19 @@ export default function RegisterPage() {
                   </div>
 
                   <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>Confirm Password</label>
+                    <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Confirm Password</label>
                     <input 
                       type="password" 
                       placeholder="••••••••" 
                       required 
                       style={{
+                        width: '100%',
                         background: 'var(--color-secondary)',
                         border: '1px solid var(--color-border)',
-                        padding: '12px 16px',
-                        borderRadius: '12px',
+                        padding: '14px 18px',
+                        borderRadius: '14px',
                         color: 'white',
-                        fontSize: '14px',
+                        fontSize: '15px',
                         outline: 'none',
                       }}
                       value={formData.confirmPassword}
@@ -161,7 +162,7 @@ export default function RegisterPage() {
                 </div>
 
                 <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>Phone Number</label>
+                  <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Phone Number</label>
                   <input 
                     type="tel" 
                     placeholder="+91 00000 00000" 
@@ -170,7 +171,7 @@ export default function RegisterPage() {
                       width: '100%',
                       background: 'var(--color-secondary)',
                       border: '1px solid var(--color-border)',
-                      padding: '16px 20px',
+                      padding: '14px 18px',
                       borderRadius: '14px',
                       color: 'white',
                       fontSize: '15px',

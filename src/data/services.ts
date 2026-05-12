@@ -301,6 +301,7 @@ export const SERVICES: Record<string, Service> = {
     slug: "property",
     title: "Property Excellence",
     icon: "🏠",
+    tagline: "Your trusted partner for buying, selling, and leasing premium real estate.",
     heroImage: "/images/property_hero.png",
     highlights: [
       { icon: "🔑", title: "Residential Sales", desc: "Exclusive portfolio of Luxury Flats, Independent Houses, and residential plots in prime sectors.", image: "/images/resiprop.jpeg", priority: true },

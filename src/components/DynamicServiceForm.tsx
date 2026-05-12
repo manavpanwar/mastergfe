@@ -171,7 +171,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Where would you like to install?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -216,7 +216,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>What kind of trip are you planning?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -261,7 +261,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Which renovation service do you need?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -305,7 +305,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Which business service do you need?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -357,7 +357,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
                 onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
               />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="responsive-grid-2" style={{ gap: '16px' }}>
               <div className="form-group">
                 <label style={{ display: 'block', marginBottom: '8px', fontSize: '13px', color: 'var(--color-text-muted)' }}>Interested Service</label>
                 <select 
@@ -422,7 +422,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>What are you looking for?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -491,7 +491,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>What do you need help with?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -526,7 +526,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
         return (
           <div className="form-step">
             <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Select Standard</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+            <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
               {standards.map(s => (
                 <button key={s} className="glass-button" onClick={() => handleNext("standard", s)}
                   style={{ padding: '14px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--color-border)', color: 'white', cursor: 'pointer' }}
@@ -544,7 +544,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
         return (
           <div className="form-step">
             <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Select Level</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+            <div className="responsive-grid-2" style={{ gap: '16px', marginBottom: '24px' }}>
               <button className="glass-button" onClick={() => handleNext("level", "UG")} style={{ padding: '24px', borderRadius: '16px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--color-border)', color: 'white', cursor: 'pointer', fontSize: '18px', fontWeight: '700' }}>Undergraduate (UG)</button>
               <button className="glass-button" onClick={() => handleNext("level", "PG")} style={{ padding: '24px', borderRadius: '16px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--color-border)', color: 'white', cursor: 'pointer', fontSize: '18px', fontWeight: '700' }}>Postgraduate (PG)</button>
             </div>
@@ -562,7 +562,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>Select {formData.level} Course</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {courses.map(c => (
               <button key={c} className="glass-button" 
                 onClick={() => {
@@ -634,7 +634,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
       return (
         <div className="form-step">
           <h3 style={{ marginBottom: '24px', textAlign: 'center' }}>What would you like to recycle?</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+          <div className="responsive-grid-2" style={{ marginBottom: '24px' }}>
             {options.map(opt => (
               <button 
                 key={opt.id} 
@@ -666,7 +666,8 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
   };
 
   return (
-    <div className="dynamic-service-form glass" style={{ padding: '32px', borderRadius: '24px', position: 'relative' }}>
+    <div className="dynamic-service-form glass" style={{ borderRadius: '24px', position: 'relative' }}>
+      <div className="form-inner-padding" style={{ padding: 'min(32px, 5vw)' }}>
       {isSubmitting && (
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '24px' }}>
           <div className="accent-text">Submitting...</div>
@@ -690,6 +691,7 @@ export default function DynamicServiceForm({ serviceSlug, serviceTitle }: Dynami
           <a href="https://wa.me/919999999999" className="btn btn-primary" style={{ marginTop: '16px' }}>Chat on WhatsApp</a>
         </div>
       )}
+      </div>
     </div>
   );
 }

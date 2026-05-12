@@ -3,6 +3,10 @@
 /* =============================================
    DESIGN TOKENS
 ============================================= */
+html {
+  scroll-padding-top: 100px;
+}
+
 :root {
   --color-dominant: #0A0A0A;
   --color-secondary: #141414;
@@ -145,12 +149,12 @@ h4 { font-size: 18px; font-weight: 700; }
 
 @media (max-width: 768px) {
   .container {
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
-  /* Keep login screen compact as requested */
+  /* Keep login screen compact */
   .login-page .container {
     padding-left: 16px !important;
     padding-right: 16px !important;
@@ -280,18 +284,19 @@ h4 { font-size: 18px; font-weight: 700; }
 
 @media (max-width: 768px) {
   .header-container {
-    padding-left: 32px !important;
-    padding-right: 32px !important;
-    height: 85px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    height: 80px;
   }
   .logo-crop {
-    height: 70px;
+    height: 60px;
   }
   .site-header {
-    height: 85px;
+    height: 80px;
   }
   .main-nav.open {
-    top: 85px;
+    top: 0; /* Cover full screen */
+    height: 100vh;
   }
 }
 
@@ -338,6 +343,13 @@ h4 { font-size: 18px; font-weight: 700; }
   justify-content: flex-start;
 }
 
+@media (max-width: 768px) {
+  .logo-reel-container {
+    width: 180px;
+    height: 80px;
+  }
+}
+
 .logo-reel {
   display: flex;
   flex-direction: column;
@@ -351,7 +363,13 @@ h4 { font-size: 18px; font-weight: 700; }
   object-fit: contain;
   object-position: left center;
   flex-shrink: 0;
-  transform: scale(1.08); /* Adjusted to prevent cutting while staying large */
+  transform: scale(1.05); /* Slightly reduced to prevent cutting */
+}
+
+@media (max-width: 768px) {
+  .reel-item {
+    height: 80px;
+  }
 }
 
 .header-cta {
@@ -438,6 +456,19 @@ h4 { font-size: 18px; font-weight: 700; }
   gap: 0; /* No gap at all */
 }
 
+.mobile-toggle { 
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 2001; /* Above mobile nav */
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 .hero-logo-container {
   margin-bottom: -85px; /* Slightly relaxed pull up */
   display: flex;
@@ -487,16 +518,24 @@ h4 { font-size: 18px; font-weight: 700; }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 20px 32px 80px;
+    padding: 100px 20px 60px; /* Increased top padding for fixed header */
   }
   .hero-desc {
     font-size: 15px;
     padding: 0;
+    margin-top: 12px;
   }
   .hero h1 {
-    font-size: 34px;
+    font-size: 36px;
     line-height: 1.1;
     padding: 0;
+  }
+  .hero-logo-container {
+    margin-bottom: -40px;
+  }
+  .hero-logo {
+     width: 100%;
+     margin: 0;
   }
 }
 
@@ -841,17 +880,6 @@ h4 { font-size: 18px; font-weight: 700; }
 /* =============================================
    MOBILE NAV
 ============================================= */
-.mobile-toggle { 
-  display: none; 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  color: var(--color-text); 
-  padding: 8px;
-  flex-direction: column;
-  gap: 5px;
-  z-index: 1001;
-}
 .mobile-toggle span {
   display: block;
   width: 24px;
@@ -874,11 +902,11 @@ h4 { font-size: 18px; font-weight: 700; }
     display: flex;
     position: fixed;
     inset: 0;
-    top: 90px;
-    background: rgba(10, 10, 10, 0.98);
+    background: #0a0a0a; /* Solid black for reliability */
     backdrop-filter: blur(20px);
-    padding: 40px;
-    z-index: 999;
+    -webkit-backdrop-filter: blur(20px);
+    padding: 100px 40px 40px; /* Increased top padding for logo */
+    z-index: 2000; /* Higher than header's 1000 */
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -886,22 +914,40 @@ h4 { font-size: 18px; font-weight: 700; }
   
   .main-nav.open ul { 
     flex-direction: column; 
-    gap: 30px; 
+    gap: 25px; 
     text-align: center;
     width: 100%;
+    margin-top: 40px;
   }
 
-  .main-nav.open a {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--color-text);
+  .main-nav.open ul li a, 
+  .main-nav.open ul li button {
+    color: #fff !important;
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: none !important;
+    border: none !important;
+    padding: 10px !important;
+    display: inline-block;
+    width: auto;
+    transition: color 0.3s ease;
+  }
+
+  .main-nav.open ul li a:active,
+  .main-nav.open ul li button:active {
+    color: var(--color-accent) !important;
+    background: none !important;
   }
 
   .hero-stats { 
-    flex-direction: grid;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px; 
+    gap: 20px; 
     width: 100%;
+    border-top: 1px solid var(--color-border);
+    padding-top: 24px;
   }
   
   .hero-logo {
@@ -914,7 +960,8 @@ h4 { font-size: 18px; font-weight: 700; }
   }
   
   .hero h1 {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1.1;
   }
   
   .services-grid {
@@ -929,10 +976,10 @@ h4 { font-size: 18px; font-weight: 700; }
 
 /* HERO */
 .service-page-hero {
-  padding-top: 140px;
-  padding-bottom: 56px;
-  padding-left: 24px; /* Added side padding */
-  padding-right: 24px;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -992,11 +1039,19 @@ h4 { font-size: 18px; font-weight: 700; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-text-muted);
   margin-bottom: var(--spacing-lg);
   transition: color 0.2s ease;
   letter-spacing: 0.02em;
+  padding: 8px 0; /* Better touch target */
+}
+
+@media (max-width: 768px) {
+  .back-link {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
 }
 .back-link:hover { color: var(--color-accent); }
 
@@ -1067,7 +1122,7 @@ h4 { font-size: 18px; font-weight: 700; }
 }
 
 @media (max-width: 900px) { .highlights-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .highlights-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .highlights-grid { grid-template-columns: 1fr; } }
 
 .highlight-item {
   background: var(--color-secondary);
@@ -1168,8 +1223,15 @@ h4 { font-size: 18px; font-weight: 700; }
   background: var(--color-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-lg); /* Reduced from XL */
   transition: all 0.35s ease;
+}
+
+@media (max-width: 640px) {
+  .step-card {
+    flex-direction: column;
+    padding: 24px;
+  }
 }
 
 .step-card:hover {
@@ -1253,6 +1315,12 @@ h4 { font-size: 18px; font-weight: 700; }
   gap: 16px;
 }
 
+@media (max-width: 640px) {
+  .comparison-images {
+    grid-template-columns: 1fr;
+  }
+}
+
 .image-pair {
   position: relative;
   overflow: hidden;
@@ -1288,7 +1356,7 @@ h4 { font-size: 18px; font-weight: 700; }
 /* LISTINGS */
 .listings-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reduced from 300px */
   gap: 20px;
 }
 
@@ -1459,7 +1527,7 @@ h4 { font-size: 18px; font-weight: 700; }
 /* Service Cards Refined Layout */
 .ad-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   margin-top: 48px;
 }
@@ -1531,6 +1599,15 @@ h4 { font-size: 18px; font-weight: 700; }
   background: var(--color-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+}
+
+@media (max-width: 768px) {
+  .ad-service-card { padding: 24px; }
+  .ad-stat-card { padding: 32px 20px; }
+  .ad-form { padding: 32px 20px; }
+  .form-text h2 { font-size: 32px; }
+  .process-card { padding: 24px; gap: 20px; }
+  .process-num { font-size: 40px; min-width: 60px; }
 }
 
 .ad-stat-value {
@@ -1825,6 +1902,36 @@ h4 { font-size: 18px; font-weight: 700; }
   }
   .service-hero-inner {
     text-align: left;
-    padding: 30px 0;
+    padding: 20px 0 40px;
   }
+  .service-hero-text {
+    width: 100%;
+  }
+}
+
+/* RESPONSIVE UTILITIES */
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .responsive-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.glass-button {
+  transition: all 0.3s ease;
+}
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--color-accent) !important;
+  transform: translateY(-2px);
+}
+
+.scrolled .site-header {
+  background: var(--color-dominant) !important; /* Fully opaque on scroll */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }

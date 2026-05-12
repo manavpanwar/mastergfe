@@ -12,14 +12,25 @@ export default function Header() {
   const scrolled = scrollY > 50;
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const reelItemHeight = isMobile ? 80 : 90;
 
   return (
     <header className={`site-header ${scrolled ? "scrolled" : ""} ${isHome ? "is-home" : ""}`}>
@@ -30,7 +41,7 @@ export default function Header() {
               <div 
                 className="logo-reel"
                 style={{ 
-                  transform: `translateY(${-((scrollY * 0.4) % 180)}px)`,
+                  transform: `translateY(${-((scrollY * 0.4) % (reelItemHeight * 2))}px)`,
                   transition: 'none'
                 }}
               >

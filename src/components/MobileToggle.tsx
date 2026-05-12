@@ -16,8 +16,10 @@ export default function MobileToggle() {
     if (nav) {
       if (isOpen) {
         nav.classList.add('open');
+        document.body.classList.add('menu-open');
       } else {
         nav.classList.remove('open');
+        document.body.classList.remove('menu-open');
       }
     }
   }, [isOpen]);

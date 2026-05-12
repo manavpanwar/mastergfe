@@ -38,13 +38,13 @@ export default function LoginPage() {
       <section className="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '100px', paddingBottom: '50px' }}>
         <div className="container" style={{ maxWidth: '600px' }}>
           <MotionWrapper direction="down">
-            <div className="login-card glass" style={{ padding: '20px 48px 32px', borderRadius: '22px', textAlign: 'left' }}>
+            <div className="login-card glass" style={{ padding: 'min(32px, 8vw) min(48px, 6vw)', borderRadius: '22px', textAlign: 'left' }}>
               <div style={{ textAlign: 'center', marginBottom: '0' }}>
                 <Link href="/">
-                  <img src="/images/whitelogo.png" alt="Master G" style={{ height: '250px', margin: '-40px auto -50px' }} />
+                  <img src="/images/whitelogo.png" alt="Master G" style={{ height: 'min(200px, 40vw)', margin: '-20px auto -30px', width: 'auto', objectFit: 'contain' }} />
                 </Link>
-                <h2 className="accent-text" style={{ fontSize: '32px' }}>Welcome Back</h2>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '15px', marginTop: '0' }}>
+                <h2 className="accent-text" style={{ fontSize: 'clamp(24px, 5vw, 32px)' }}>Welcome Back</h2>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', marginTop: '4px' }}>
                   Log in to access your dashboard
                 </p>
               </div>
